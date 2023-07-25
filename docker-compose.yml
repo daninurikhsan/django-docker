@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  web:
+    # image: test-docker:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0.0.0.0:8008 --noreload
+    image: test-docker
+    ports:
+      - "8008:8008"
+    volumes:
+      - .:/code
+
