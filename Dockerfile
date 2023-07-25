@@ -12,6 +12,6 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . /code/
 
-EXPOSE 8008
+EXPOSE 8009
 
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:8008" , "--noreload"]
+CMD [ "python", "manage.py", "runserver", "0.0.0.0:8009" , "--noreload"]

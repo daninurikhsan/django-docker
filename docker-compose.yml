@@ -9,7 +9,5 @@ services:
     # command: python manage.py runserver 0.0.0.0:8008 --noreload
     image: test-docker
     ports:
-      - "8008:8008"
-    volumes:
-      - .:/code
+      - "8009:8009"
 
