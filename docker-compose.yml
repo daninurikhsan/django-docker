@@ -25,8 +25,6 @@ services:
     container_name: test-django
     ports:
       - "8009:8009"
-    volumes:
-      - .:/code
     depends_on:
       - db 
     links:
