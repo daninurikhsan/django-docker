@@ -3,6 +3,7 @@ version: '3.9'
 services:
   db:
     image: mariadb:latest
+    container_name: database
     ports:
       - "3307:3306"
     environment:
@@ -22,7 +23,7 @@ services:
       dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8009 --noreload
     image: app:django
-    container_name: test-django
+    container_name: main
     ports:
       - "8009:8009"
     depends_on:
