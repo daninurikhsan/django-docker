@@ -1,7 +1,7 @@
 from app.settings.base import *
 
 DEBUG = False
-ALLOWED_HOSTS = ['103.214.112.142',]
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
