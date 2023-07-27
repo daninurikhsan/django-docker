@@ -1,6 +1,6 @@
 from app.settings.base import *
 
-DEBUG = True
+DEBUG = False
 # ALLOWED_HOSTS = ['*']
 
 DATABASES = {
