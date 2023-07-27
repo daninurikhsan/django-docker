@@ -16,6 +16,7 @@ import os
 
 main.load_dotenv()
 
+DEBUG=True
 ALLOWED_HOSTS = ['*']
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
