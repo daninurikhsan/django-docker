@@ -30,8 +30,8 @@ services:
     links:
       - db
 
-# volumes:
-#   mariadb_data:
+volumes:
+  mariadb_data:
   
 
 # version: '3.9'
