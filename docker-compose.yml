@@ -1,13 +1,69 @@
 version: '3.9'
 
 services:
-  web:
+  db:
+    image: mariadb:latest
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_HOST: host.docker.internal
+      MYSQL_DATABASE: safebox_api
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: devatsafebox
+      MYSQL_ROOT_PASSWORD: devatsafebox
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_RANDOM_ROOT_PASSWORD: 1
+    volumes:
+      - mariadb_data:/var/lib/mysql
+  app:
     # image: test-docker:0.0.1
     build:
       context: .
       dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8009 --noreload
-    image: test-docker
+    image: app:django
+    container_name: test-django
     ports:
       - "8009:8009"
+    volumes:
+      - .:/code
+    depends_on:
+      - db 
+    links:
+      - db
+
+volumes:
+  mariadb_data:
+  
+
+# version: '3.9'
+
+# services:
+#   mysql-db:
+#     build:
+#       context: .
+#       dockerfile: ./docker/mysql/Dockerfile
+#     volumes:
+#       - mysql_data:/var/lib/mysql
+#     restart: unless-stopped
+#     env_file: app/.env
+#     ports:
+#       - "3307:3307"
+#   web:
+#     # image: test-docker:0.0.1
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     command: python manage.py runserver 0.0.0.0:8009 --noreload
+#     image: test-docker
+#     ports:
+#       - "8009:8009"
+#     volumes:
+#       - /tmp/code/mysqld:/run/mysqld
+#     depends_on:
+#       - mysql-db 
+#     env_file: app/.env
+
+# volumes:
+#    mysql_data:
 
