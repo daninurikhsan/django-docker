@@ -1,5 +1,6 @@
 from app.settings.base import *
 
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DEBUG = False
 # ALLOWED_HOSTS = ['*']
 
